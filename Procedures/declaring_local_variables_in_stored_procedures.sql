@@ -1,5 +1,6 @@
 -- Declaring and setting a local variable in a stored procedure
 
+DELIMITER $$;
 CREATE PROCEDURE get_risk_factor ()
 BEGIN
 	DECLARE risk_factor DECIMAL(9, 2) DEFAULT 0;
@@ -13,4 +14,6 @@ BEGIN
     SET risk_factor = invoices_total / invoices_count * 5;
     
     SELECT risk_factor;
-END
+END $$
+
+DELIMITER ;

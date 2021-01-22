@@ -1,0 +1,6 @@
+-- Changing the character set
+-- CREATE DATABASE db_name (
+-- )
+-- CHARACTER SET latin2
+-- ALTER TABLE table1
+-- CHARACTER SET latin1

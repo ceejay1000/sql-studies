@@ -8,7 +8,7 @@ BEGIN
 	IF new_amount <= 0 THEN
 		-- This is how to raise an exception in SQL
 		SIGNAL SQLSTATE '22003'
-			SET MESSAGE_TEXT = 'Invalid payment method';
+		SET MESSAGE_TEXT = 'Invalid payment method';
 	END IF;
 	UPDATE payments SET amount = new_amount WHERE payment_id = 1 AND client_id = 5;
 END $$

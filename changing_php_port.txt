@@ -1,0 +1,51 @@
+1. Open Xampp.
+
+2. Stop all the running Xampp services.
+
+3. Go to "config" at top-right corner of the Xampp window, click on "service and port settings", go to "mysql" tab and change the "main port" to 3308 or something else.
+
+4. Now, in Xampp, click on "config" in the MySql row (click on MySql's "config"), and open "my.ini".
+
+5. "my.ini" will open in notepad. Go to line 20 (Can be some other line also) and change the port to 3308, like this:
+
+# password = your_password
+
+port = 3308
+
+…
+
+6. Also, change the port to 3308 on line 28 of my.ini file, like this:
+
+# The MySQL server
+
+[mysqld]
+
+port= 3308
+
+…
+
+7. Save the changes.
+
+8. Restart the Xampp.
+
+9. Now go to C:\xampp\phpMyAdmin (Your directory where Xampp is installed) . Open the "config.inc.php" file.
+
+10. Below the user, password and extension lines at the top of the file(Below line 23), add this line:
+
+$cfg['Servers'][$i]['port'] = 3308;
+
+(If you don't follow step 10, this error will occur while opening "phpmyadmin": (HY000/2002): No connection could be made because the target machine actively refused it.)
+
+11. Save the changes.
+
+12. Also, from now, in your every new project, you have to mention this new port in your project code :
+
+//After changing the port:
+
+//Connecting Mysql Database with PHP:
+
+$conn = mysqli_connect("localhost:3308" , "root" , "", "database_name");
+
+That’s it.
+
+Cheers!
